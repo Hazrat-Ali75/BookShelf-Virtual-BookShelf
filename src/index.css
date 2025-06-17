@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme{
+  --font-roboto : "Roboto", sans-serif; 
+  --font-hand : "Edu QLD Hand", cursive;
+  --font-secondary: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-primary: "Open Sans", sans-serif;
+  --font-hero: "Ubuntu", sans-serif;
+}
+
+ul.hamb{
+  width: 250px;
+}
+ul.hamb li a{
+  display: block;
+  width: 90%;
+  margin: auto;
+}
+ul.hamb li a:hover{
+  background: #576574;
+  color: white;
+  padding: 3px;
+  border-radius: 2px;
+  transition: 0.3s ease-in;
+}
+ul.desk li a:hover{
+  background:#576574;
+  color: white;
+  padding: 4px;
+  border-radius: 2px;
+  transition: 0.3s ease-out;
+}
+li a.active{
+  border-bottom: 2px solid #ff6348;
+  /* color: white; */
+  padding: 4px;
+  border-radius: 2px;
+  transition: 0.3s ease-out;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white;
+  font-size: 2rem;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  width: 20px;
+  height: 20px;
+  /* border-radius: 50%; */
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1.5rem;
+}
