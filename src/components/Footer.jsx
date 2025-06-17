@@ -4,6 +4,7 @@ import {
   FaInstagram,
   FaLinkedinIn
 } from 'react-icons/fa'
+import { Link } from 'react-router'
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
         <div>
           <h2 className='text-3xl font-bold mb-2'>📚 BoiPoka</h2>
           <p className='text-sm text-gray-200'>
-            Your digital library haven. Read, borrow, explore a world of
+            Your digital library haven. Read, borrow, explore Link world of
             knowledge.
           </p>
         </div>
@@ -23,24 +24,24 @@ const Footer = () => {
           <h3 className='text-xl font-semibold mb-3'>Explore</h3>
           <ul className='space-y-2 text-gray-300 text-sm'>
             <li>
-              <a href='#' className='hover:text-white'>
+              <Link href='#' className='hover:text-white'>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:text-white'>
+              <Link href='#' className='hover:text-white'>
                 Categories
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:text-white'>
+              <Link href='#' className='hover:text-white'>
                 My Bookshelf
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:text-white'>
+              <Link href='#' className='hover:text-white'>
                 About Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -70,25 +71,22 @@ const Footer = () => {
         <div>
           <h3 className='text-xl font-semibold mb-3'>Connect with Us</h3>
           <div className='flex space-x-4 text-2xl'>
-            <a href='#' className='hover:text-yellow-300'>
+            <Link to='https://www.facebook.com/profile.php?id=61576442623017' className='hover:text-yellow-300'>
               <FaFacebookF />
-            </a>
-            <a href='#' className='hover:text-yellow-300'>
+            </Link>
+            <Link to='https://x.com/hazratali010sh' className='hover:text-yellow-300'>
               <FaTwitter />
-            </a>
-            <a href='#' className='hover:text-yellow-300'>
-              <FaInstagram />
-            </a>
-            <a href='#' className='hover:text-yellow-300'>
+            </Link>
+            <Link to='https://www.linkedin.com/in/hazrat-ali-3b5966282' className='hover:text-yellow-300'>
               <FaLinkedinIn />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Bottom */}
       <div className='mt-10 text-center text-sm text-gray-300 border-t border-gray-600 pt-4'>
-        © {new Date().getFullYear()} BookNest. All rights reserved.
+        © {new Date().getFullYear()} Boipoka. All rights reserved.
       </div>
     </footer>
   )
