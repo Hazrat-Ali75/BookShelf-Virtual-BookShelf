@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import Swal from 'sweetalert2'
+import { AuthContext } from '../context/AuthContext'
 
 const ReviewCard = ({ reviewData, loadReviews, setReviews }) => {
+  const {user} = useContext(AuthContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editedReview, setEditedReview] = useState(reviewData.reviewPost)
 
@@ -9,7 +12,14 @@ const ReviewCard = ({ reviewData, loadReviews, setReviews }) => {
       method: 'DELETE'
     })
       .then(res => res.json())
-      .then(() => {
+      .then(data => {
+        if (data.deletedCount) {
+          Swal.fire({
+            title: 'Deleted!',
+            text: 'Your review has been deleted.',
+            icon: 'success'
+          })
+        }
         const filteredReviews = loadReviews.filter(review => review._id !== id)
         setReviews(filteredReviews)
       })
@@ -28,6 +38,16 @@ const ReviewCard = ({ reviewData, loadReviews, setReviews }) => {
     )
       .then(res => res.json())
       .then(data => {
+        if (data.modifiedCount == 1) {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Review Updated Successfully !!!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+
         const updatedReviews = loadReviews.map(review =>
           review._id === reviewData._id
             ? { ...review, reviewPost: editedReview }
@@ -60,6 +80,7 @@ const ReviewCard = ({ reviewData, loadReviews, setReviews }) => {
         </button>
         <button
           onClick={() => handleDelete(reviewData._id)}
+          disabled={!user || !user.email}
           className='bg-gray-700 text-white px-4 py-2 rounded-sm w-[80px]'
         >
           Delete
@@ -85,6 +106,7 @@ const ReviewCard = ({ reviewData, loadReviews, setReviews }) => {
               </button>
               <button
                 onClick={handleUpdate}
+                disabled={!user || !user.email}
                 className='bg-blue-600 text-white px-4 py-2 rounded'
               >
                 Update

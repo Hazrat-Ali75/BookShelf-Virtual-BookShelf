@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { useLoaderData, useParams } from 'react-router'
 import { fadeIn } from '../FramerMotion/variant'
 import useUpdateMyBookApi from '../api/useUpdateMyBookApi'
+import Swal from 'sweetalert2'
 
 const UpdateBook = () => {
   const book = useLoaderData()
@@ -27,6 +28,15 @@ const UpdateBook = () => {
     console.log(formData); 
     updateMyBookPromise(id,formData)
     .then(res=> {
+      if(res.data.modifiedCount == 1){
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Book Updated Successfully !!!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
         console.log(res.data)
     })
     .catch(err=>{

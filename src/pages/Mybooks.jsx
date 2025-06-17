@@ -4,6 +4,7 @@ import { AuthContext } from '../context/AuthContext'
 import { Link } from 'react-router'
 import useMyBooksApi from '../api/useMyBooksApi'
 import useDeleteMyBookApi from '../api/useDeleteMyBookApi'
+import Swal from 'sweetalert2'
 
 const Mybooks = () => {
   const { user } = useContext(AuthContext)
@@ -22,6 +23,15 @@ const Mybooks = () => {
     console.log(id)
     deleteMyBookPromise(id)
     .then(res=>{
+      
+      if(res.data.deletedCount){
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your book has been deleted.",
+          icon: "success"
+        });
+      }
+
       const remainingBook = myBooks.filter(books=> books._id !== id)
       setMyBooks(remainingBook);
       console.log(res.data)
@@ -31,7 +41,7 @@ const Mybooks = () => {
     })
   }
 
-  // console.log(myBooks)
+  
   return (
     <div className='w-11/12 mx-auto pb-20'>
       <h1 className='text-xl md:text-3xl font-secondary font-medium text-center py-10'>

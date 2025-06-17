@@ -9,7 +9,7 @@ const PopularBooks = ({ topUpvotedBooksPromise }) => {
   useEffect(() => {
     setTopUpvotedBooks(initialBookData)
   }, [initialBookData])
-  console.log(topUpvotedBooks)
+  
   return (
     <div>
       <h1 className='font-hero text-xl md:text-4xl md:font-medium pt-10 pb-15'>
