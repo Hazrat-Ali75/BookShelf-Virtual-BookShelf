@@ -123,6 +123,7 @@ const UpdateBook = () => {
         <input
           type='number'
           name='upvote'
+          readOnly
           defaultValue={book.upvote}
           placeholder='Upvote Count'
           className='input input-bordered w-full'
