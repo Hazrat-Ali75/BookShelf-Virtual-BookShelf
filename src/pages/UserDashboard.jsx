@@ -8,13 +8,17 @@ import {
   ResponsiveContainer
 } from 'recharts'
 import { AuthContext } from '../context/AuthContext'
-// import { myBooksPromise } from '../api/myBooksPromise'
 import useMyBooksApi from '../api/useMyBooksApi'
 
 
 const COLORS = ['#6366F1', '#EC4899', '#10B981', '#F59E0B', '#EF4444']
 
 const UserDashboard = () => {
+
+  useEffect(() => {
+      document.title = 'DashBoard | Boipoka'
+    }, [])
+
   const {user} = useContext(AuthContext);
   const {myBookPromiseSecure} = useMyBooksApi()
   const [myBooksData, setMyBooksData] = useState([]);

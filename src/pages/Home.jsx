@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import Banner from '../components/Banner'
 import PopularBooks from '../components/PopularBooks'
 import FeaturedBooks from '../components/FeaturedBooks'
@@ -7,6 +7,11 @@ import ReadingTips from '../components/ReadingTips'
 import StatsSection from '../components/StatsSection'
 
 const Home = () => {
+
+  useEffect(() => {
+      document.title = 'Home | Boipoka'
+    }, [])
+
   return (
     <div className=''>
       <div className='w-11/12 mx-auto h-[270px] md:h-[600px] pt-8 md:pt-10 pb-15'>

@@ -5,6 +5,11 @@ import { reviewPromise } from '../api/reviewPromise'
 import { AuthContext } from '../context/AuthContext'
 
 const Bookdetails = () => {
+
+  useEffect(() => {
+      document.title = 'Book Details | Boipoka'
+    }, [])
+
   const allBooks = useLoaderData()
   const { id } = useParams()
   const { user } = useContext(AuthContext)

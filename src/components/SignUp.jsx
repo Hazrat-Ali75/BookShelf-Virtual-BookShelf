@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 import { FcGoogle } from 'react-icons/fc'
 import { Link, useNavigate } from 'react-router'
@@ -9,6 +9,11 @@ import { fadeIn } from '../FramerMotion/variant'
 import { fadeInUp } from '../FramerMotion/animation'
 
 const SignUp = () => {
+
+  useEffect(() => {
+      document.title = 'Sign Up | Boipoka'
+    }, [])
+
   const { setUser, handleRegister, handleRegisterGoogle, handleUpdate } =
     useContext(AuthContext)
 

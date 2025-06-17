@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { motion } from "motion/react"
 import { Link, useLocation, useNavigate } from 'react-router'
 import { AuthContext } from '../context/AuthContext'
@@ -8,6 +8,10 @@ import { fadeInUp } from '../FramerMotion/animation'
 
 
 const SignIn = () => {
+
+  useEffect(() => {
+      document.title = 'Sign In | Boipoka'
+    }, [])
 
     const [error, setError] = useState('')
     const {setUser, handleLogin} = useContext(AuthContext);

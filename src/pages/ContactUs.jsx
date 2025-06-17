@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const ContactUs = () => {
+
+  useEffect(() => {
+      document.title = 'Contact us | Boipoka'
+    }, [])
+
   const handleSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -13,7 +18,6 @@ const ContactUs = () => {
     }
 
     console.log('Contact Request:', formData)
-    // Optional: send via axios/fetch to backend
   }
 
   return (

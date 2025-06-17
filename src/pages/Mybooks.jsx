@@ -7,6 +7,11 @@ import useDeleteMyBookApi from '../api/useDeleteMyBookApi'
 import Swal from 'sweetalert2'
 
 const Mybooks = () => {
+
+  useEffect(() => {
+      document.title = 'My Books | Boipoka'
+    }, [])
+
   const { user } = useContext(AuthContext)
   const {myBookPromiseSecure} = useMyBooksApi()
   const {deleteMyBookPromise} = useDeleteMyBookApi()

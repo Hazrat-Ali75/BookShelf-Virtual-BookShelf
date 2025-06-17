@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'motion/react'
 import { useLoaderData, useParams } from 'react-router'
 import { fadeIn } from '../FramerMotion/variant'
@@ -6,6 +6,11 @@ import useUpdateMyBookApi from '../api/useUpdateMyBookApi'
 import Swal from 'sweetalert2'
 
 const UpdateBook = () => {
+
+  useEffect(() => {
+      document.title = 'Update Book | Boipoka'
+    }, [])
+
   const book = useLoaderData()
   const {id} = useParams();
   const {updateMyBookPromise} = useUpdateMyBookApi()

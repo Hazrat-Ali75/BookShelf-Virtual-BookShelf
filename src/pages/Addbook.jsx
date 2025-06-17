@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { fadeIn } from '../FramerMotion/variant'
 import { AuthContext } from '../context/AuthContext'
@@ -6,6 +6,11 @@ import Swal from 'sweetalert2'
 import usePostBookApi from '../api/usePostBookApi'
 
 const Addbook = () => {
+
+  useEffect(() => {
+    document.title = 'Add Books | Boipoka'
+  }, [])
+
   const { user } = useContext(AuthContext)
   const {postBookPromise} = usePostBookApi()
 

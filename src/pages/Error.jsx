@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import errorImg from '../assets/error.jpg'
 import { Link } from 'react-router'
 
 const Error = () => {
+
+  useEffect(() => {
+      document.title = 'Error 404 | Boipoka'
+    }, [])
  
   return (
     <div className='bg-gray-200'>

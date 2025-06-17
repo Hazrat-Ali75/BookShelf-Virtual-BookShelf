@@ -3,6 +3,11 @@ import BookCard from '../components/BookCard'
 import { useLoaderData } from 'react-router'
 
 const Bookshelf = () => {
+
+  useEffect(() => {
+      document.title = 'Bookshelf | Boipoka'
+    }, [])
+
   const initialBookData = useLoaderData()
 
   const [booksData, setBooksData] = useState([])
