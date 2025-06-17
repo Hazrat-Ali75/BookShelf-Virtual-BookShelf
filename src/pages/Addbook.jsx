@@ -49,7 +49,7 @@ const Addbook = () => {
         whileInView={'show'}
         className='max-w-3xl mx-auto p-6 bg-white rounded-2xl shadow-lg font-secondary'
       >
-        <h2 className='text-2xl font-semibold mb-6 text-center text-gray-500'>
+        <h2 className='text-xl md:text-2xl font-semibold mb-6 text-center text-gray-500'>
           Add a New Book
         </h2>
         <form onSubmit={handleSubmit} className='space-y-4'>

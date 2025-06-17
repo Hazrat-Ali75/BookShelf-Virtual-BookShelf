@@ -30,7 +30,7 @@ const Bookshelf = () => {
   return (
     <div className='bg-gray-50 p-4'>
       <div className='w-11/12 mx-auto'>
-        <h1 className='text-xl md:text-3xl font-semibold mb-4 text-center font-secondary pt-5 pb-8'>
+        <h1 className='text-xl md:text-2xl font-semibold mb-4 text-center text-gray-500 font-secondary pt-5 pb-8'>
           Bookshelf
         </h1>
 

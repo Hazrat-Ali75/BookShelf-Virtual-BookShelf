@@ -49,7 +49,7 @@ const Mybooks = () => {
   
   return (
     <div className='w-11/12 mx-auto pb-20'>
-      <h1 className='text-xl md:text-3xl font-secondary font-medium text-center py-10'>
+      <h1 className='text-xl md:text-2xl font-secondary text-gray-500 font-semibold text-center py-10'>
         My Added Books
       </h1>
       <div className=' rounded-box border border-base-content/5 bg-base-100 w-full md:w-[600px] lg:w-[800px] mx-auto'>
