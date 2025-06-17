@@ -1,37 +1,46 @@
-import React, { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
+import { useContext, useEffect } from 'react'
 import axios from 'axios'
+import { AuthContext } from '../context/AuthContext'
 
-const axiosInstance = axios.create({
+const axiosSecure = axios.create({
   baseURL: 'https://book-shelf-app-server.vercel.app/'
 })
 
 const useAxiosSecure = () => {
   const { user, setUser, handleLogOut } = useContext(AuthContext)
 
-  axiosInstance.interceptors.request.use(config => {
-    config.headers.authorization = `Bearer ${user.accessToken}`
-    return config
-  })
-
-  axiosInstance.interceptors.response.use(
-    response => {
-      return response
-    },
-    error => {
-      if (error.status === 401 || error.status === 403) {
-        handleLogOut()
-          .then(() => {
-            setUser(null)
-          })
-          .catch(error => {
-            console.log(error)
-          })
+  useEffect(() => {
+   
+    const requestInterceptor = axiosSecure.interceptors.request.use(config => {
+      if (user?.accessToken) {
+        config.headers.Authorization = `Bearer ${user.accessToken}`
       }
-      return Promise.reject(error)
+      return config
+    })
+
+   
+    const responseInterceptor = axiosSecure.interceptors.response.use(
+      response => response,
+      error => {
+        const status = error?.response?.status
+        if (status === 401 || status === 403) {
+          handleLogOut()
+            .then(() => setUser(null))
+            .catch(err => console.error('Logout failed:', err))
+        }
+        return Promise.reject(error)
+      }
+    )
+
+
+    return () => {
+      axiosSecure.interceptors.request.eject(requestInterceptor)
+      axiosSecure.interceptors.response.eject(responseInterceptor)
     }
-  )
-  return axiosInstance
+  }, [user?.accessToken, handleLogOut, setUser])
+
+  return axiosSecure
 }
 
 export default useAxiosSecure
+
